@@ -10,7 +10,8 @@ On each load (and via **Refresh**), the server:
 2. Fetches the Equilibrium League task catalog from the [RuneScape Wiki](https://runescape.wiki/w/Equilibrium_League/Tasks?action=raw)
 3. Keeps only incomplete tasks in unlocked regions: **Global, Misthalin, Havenhythe, Karamja, Kharidian Desert** (`desert`)
 4. Drops tasks he cannot do yet (skill/combat gates, locked-region quests, known inaccessible content)
-5. Ranks by easiness/fastness and returns the top 80
+5. Infers required items and league-legal acquisition (Ironman, no GE; unlocked-region shops preferred — infinite stock)
+6. Ranks by easiness/fastness **including item acquisition cost** and returns the top 80
 
 Responses are cached for **60 seconds** (`CACHE_TTL_MS`) so Railway is not abusive to WikiSync/wiki.
 
@@ -53,4 +54,5 @@ The app listens on `0.0.0.0:$PORT` (default `8080`).
 
 - Levels prefer WikiSync over hiscores (WikiSync is usually more current).
 - Estimated league points are summed from completed task tiers in the wiki catalog.
-- Ranking is heuristic (tier, short actions, grind penalties, verified easy leftovers as soft boosts). Live WikiSync always wins for completion filtering.
+- Ranking is heuristic (tier, short actions, grind penalties, **item acquisition in unlocked regions**). Live WikiSync always wins for completion filtering.
+- Item paths prefer wiki shop locations with `leagueRegion` in unlocked areas; unknown paths are demoted rather than inventing shops.

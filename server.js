@@ -40,7 +40,7 @@ async function buildPayload({ force = false } = {}) {
     fetchWikiSync(),
   ]);
 
-  const ranked = filterAndRankTasks(tasks, player);
+  const ranked = await filterAndRankTasks(tasks, player);
   const top = ranked.slice(0, TOP_N).map((task, index) => ({
     ...task,
     rank: index + 1,

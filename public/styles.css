@@ -310,6 +310,92 @@ main {
   font-size: 0.85rem;
 }
 
+.items {
+  margin: 0.55rem 0 0;
+  padding: 0.55rem 0.65rem;
+  border-left: 2px solid rgba(196, 168, 92, 0.35);
+  background: rgba(196, 168, 92, 0.05);
+  border-radius: 0 8px 8px 0;
+}
+
+.items.none {
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 0.35rem 0 0;
+  border: 0;
+  background: transparent;
+}
+
+.items-label {
+  margin: 0 0 0.25rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.items ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.items li {
+  margin: 0.2rem 0;
+  color: #d5e2d9;
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.item-name {
+  color: var(--gold-soft);
+  font-weight: 600;
+}
+
+.quests {
+  margin: 0.45rem 0 0;
+  padding: 0.55rem 0.65rem;
+  border-left: 2px solid rgba(61, 143, 106, 0.4);
+  background: rgba(61, 143, 106, 0.06);
+  border-radius: 0 8px 8px 0;
+}
+
+.quests.none {
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 0.25rem 0 0;
+  border: 0;
+  background: transparent;
+}
+
+.quests-label {
+  margin: 0 0 0.25rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8fd0ad;
+  font-weight: 700;
+}
+
+.quests ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.quests li {
+  margin: 0.2rem 0;
+  color: #d5e2d9;
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+.quest-name {
+  color: #b6e6cb;
+  font-weight: 600;
+}
+
 .wiki {
   display: inline-block;
   margin-top: 0.45rem;

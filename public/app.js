@@ -33,6 +33,35 @@ function skillText(skills) {
   return skills.map((s) => `${s.skill} ${s.level}`).join(" · ");
 }
 
+function itemsBlock(items) {
+  if (!items?.length) {
+    return `<p class="items none">Items: none</p>`;
+  }
+  const rows = items
+    .map(
+      (item) =>
+        `<li><span class="item-name">${escapeHtml(item.name)}</span> — ${escapeHtml(
+          item.how
+        )}</li>`
+    )
+    .join("");
+  return `<div class="items"><p class="items-label">Items</p><ul>${rows}</ul></div>`;
+}
+
+function questsBlock(quests) {
+  if (!quests?.length) {
+    return `<p class="quests none">Quests: none</p>`;
+  }
+  const rows = quests
+    .map((q) => {
+      const tag = q.partial ? " (partial)" : "";
+      const note = q.note ? ` — ${escapeHtml(q.note)}` : "";
+      return `<li><span class="quest-name">${escapeHtml(q.name)}${tag}</span>${note}</li>`;
+    })
+    .join("");
+  return `<div class="quests"><p class="quests-label">Quests</p><ul>${rows}</ul></div>`;
+}
+
 function renderFilters(tasks) {
   const regions = [...new Set(tasks.map((t) => t.regionKey))].sort();
   const tiers = ["easy", "medium", "hard", "elite", "master"].filter((t) =>
@@ -100,6 +129,8 @@ function renderList() {
         <p class="skills">${escapeHtml(skillText(task.skills))}${
           task.other ? ` · ${escapeHtml(task.other)}` : ""
         }</p>
+        ${itemsBlock(task.items)}
+        ${questsBlock(task.quests)}
         <a class="wiki" href="${escapeAttr(task.wikiUrl)}" target="_blank" rel="noopener noreferrer">Wiki task #${task.id}</a>
       </div>
     `;
