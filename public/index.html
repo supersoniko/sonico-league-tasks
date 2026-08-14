@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sonico — next 80 easiest league tasks</title>
+    <meta
+      name="description"
+      content="Live leftover Equilibrium League tasks for Sonico, ranked by how easy and fast they are."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="bg" aria-hidden="true"></div>
+    <header class="hero">
+      <p class="eyebrow">Equilibrium League · unlocked regions only</p>
+      <h1>Sonico</h1>
+      <p class="tagline">Next 80 easiest leftover league tasks</p>
+      <div class="stats" id="stats" aria-live="polite">
+        <div class="stat">
+          <span class="label">Completed</span>
+          <span class="value" id="stat-completed">—</span>
+        </div>
+        <div class="stat">
+          <span class="label">Total level</span>
+          <span class="value" id="stat-total">—</span>
+        </div>
+        <div class="stat">
+          <span class="label">Est. LP</span>
+          <span class="value" id="stat-lp">—</span>
+        </div>
+        <div class="stat">
+          <span class="label">Leftovers</span>
+          <span class="value" id="stat-left">—</span>
+        </div>
+      </div>
+      <div class="toolbar">
+        <p class="refresh-meta" id="refresh-meta">Loading live WikiSync…</p>
+        <button type="button" id="refresh-btn" class="btn">Refresh</button>
+      </div>
+      <p class="regions" id="regions"></p>
+    </header>
+
+    <main>
+      <section class="filters" aria-label="Filters">
+        <div class="chip-row" id="region-filters"></div>
+        <div class="chip-row" id="tier-filters"></div>
+      </section>
+
+      <section class="list-wrap">
+        <ol class="task-list" id="task-list"></ol>
+        <p class="empty" id="empty" hidden>No tasks match these filters.</p>
+        <p class="error" id="error" hidden></p>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        Live data from
+        <a href="https://sync.runescape.wiki/runescape/player/Sonico/LEAGUE_2"
+          >WikiSync</a
+        >
+        and the
+        <a href="https://runescape.wiki/w/Equilibrium_League/Tasks"
+          >RuneScape Wiki</a
+        >. Cached ~60s.
+      </p>
+    </footer>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
