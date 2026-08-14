@@ -54,9 +54,16 @@ function questsBlock(quests) {
   }
   const rows = quests
     .map((q) => {
-      const tag = q.partial ? " (partial)" : "";
+      const tags = [];
+      if (q.partial) tags.push("partial");
+      if (q.implied) tags.push("implied");
+      if (q.length && q.length !== "unknown") tags.push(q.length);
+      if (q.status === "unknown") tags.push("undone?");
+      const tag = tags.length ? ` (${tags.join(", ")})` : "";
       const note = q.note ? ` — ${escapeHtml(q.note)}` : "";
-      return `<li><span class="quest-name">${escapeHtml(q.name)}${tag}</span>${note}</li>`;
+      return `<li><span class="quest-name">${escapeHtml(q.name)}${escapeHtml(
+        tag
+      )}</span>${note}</li>`;
     })
     .join("");
   return `<div class="quests"><p class="quests-label">Quests</p><ul>${rows}</ul></div>`;
