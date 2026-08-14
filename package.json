@@ -1,0 +1,15 @@
+{
+  "name": "sonico-league-tasks",
+  "version": "1.0.0",
+  "description": "Next 80 easiest leftover Equilibrium League tasks for Sonico",
+  "private": true,
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
