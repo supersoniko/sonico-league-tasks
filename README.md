@@ -55,3 +55,4 @@ The app listens on `0.0.0.0:$PORT` (default `8080`).
 - Levels prefer WikiSync over hiscores (WikiSync is usually more current).
 - Estimated league points are summed from completed task tiers in the wiki catalog.
 - Ranking folds in **item acquisition** and **quest gates** (explicit + implied). WikiSync has no quest-completion for Sonico, so required quests are treated as not done and demoted by length.
+- Item paths use **coin** shops in unlocked regions only. Minigame-token / ironman-blocked stock (e.g. Wizard Elriss talismans & essence) is rejected; uncertain paths are demoted.
